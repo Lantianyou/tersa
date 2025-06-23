@@ -1,17 +1,9 @@
 import { getCredits } from '@/app/actions/credits/get';
-import { profile } from '@/schema';
-import { eq } from 'drizzle-orm';
-import { database } from './database';
 import { env } from './env';
-import { createClient } from './supabase/server';
+
 
 export const currentUser = async () => {
-  const client = await createClient();
-  const {
-    data: { user },
-  } = await client.auth.getUser();
-
-  return user;
+  return { id: 'foo' };
 };
 
 export const currentUserProfile = async () => {
@@ -21,26 +13,17 @@ export const currentUserProfile = async () => {
     throw new Error('User not found');
   }
 
-  const userProfiles = await database
-    .select()
-    .from(profile)
-    .where(eq(profile.id, user.id));
-  let userProfile = userProfiles.at(0);
-
-  if (!userProfile && user.email) {
-    const response = await database
-      .insert(profile)
-      .values({ id: user.id })
-      .returning();
-
-    if (!response.length) {
-      throw new Error('Failed to create user profile');
-    }
-
-    userProfile = response[0];
-  }
-
-  return userProfile;
+  return {
+    id: "mock-profile-123",
+    userId: user.id,
+    email: "mockuser@example.com",
+    name: "Mock User",
+    onboardedAt: new Date("2024-01-01T00:00:00Z"),
+    subscriptionId: "mock-subscription-456",
+    productId: "mock-product-789",
+    createdAt: new Date("2023-12-01T00:00:00Z"),
+    updatedAt: new Date("2024-01-15T00:00:00Z")
+  };
 };
 
 export const getSubscribedUser = async () => {
