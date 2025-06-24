@@ -22,7 +22,8 @@ export const currentUserProfile = async () => {
     subscriptionId: "mock-subscription-456",
     productId: "mock-product-789",
     createdAt: new Date("2023-12-01T00:00:00Z"),
-    updatedAt: new Date("2024-01-15T00:00:00Z")
+    updatedAt: new Date("2024-01-15T00:00:00Z"),
+    customerId: "mock-customer-123",
   };
 };
 
