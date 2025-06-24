@@ -68,7 +68,7 @@ export const PostHogIdentifyProvider = ({ children }: PostHogProviderProps) => {
     if (posthog && user) {
       posthog.identify(user.id, {
         email: user.email,
-        name: user.user_metadata.name,
+        name: user.name,
       });
     }
   }, [posthog, user]);
