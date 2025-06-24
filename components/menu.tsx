@@ -15,7 +15,6 @@ import { ArrowUpRight, ArrowUpRightIcon, Loader2 } from 'lucide-react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { type MouseEventHandler, useState } from 'react';
-import { Profile } from './profile';
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
 import { Button } from './ui/button';
 
@@ -125,7 +124,6 @@ export const Menu = () => {
           <DropdownMenuItem onClick={logout}>Logout</DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
-      <Profile open={profileOpen} setOpen={setProfileOpen} />
     </>
   );
 };

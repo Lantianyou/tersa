@@ -4,7 +4,6 @@ import { Reasoning } from '@/components/reasoning';
 import { SaveIndicator } from '@/components/save-indicator';
 import { Toolbar } from '@/components/toolbar';
 import { TopLeft } from '@/components/top-left';
-import { TopRight } from '@/components/top-right';
 import { currentUserProfile } from '@/lib/auth';
 import { database } from '@/lib/database';
 import { ProjectProvider } from '@/providers/project';
@@ -59,9 +58,6 @@ const Project = async ({ params }: ProjectProps) => {
         </ProjectProvider>
         <Suspense fallback={null}>
           <TopLeft id={projectId} />
-        </Suspense>
-        <Suspense fallback={null}>
-          <TopRight id={projectId} />
         </Suspense>
       </div>
       <Reasoning />
