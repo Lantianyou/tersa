@@ -207,7 +207,7 @@
   }
   .react-flow__handle {
     @apply !size-4 !border-2 !border-border !bg-background;
-  }  
+  }
   .react-flow__handle-left {
     @apply !-left-4;
   }
